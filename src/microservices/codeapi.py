@@ -2,8 +2,8 @@ from enum import Enum
 from requests.exceptions import RequestException
 import requests
 import telebot
-from configs.codeapiconfig import HostConfig
-from configs.telebotconfig import TeleBotConfig
+from configs.codeapi import HostConfig
+from configs.telebot import TeleBotConfig
 
 
 bot = telebot.TeleBot(token=TeleBotConfig.get_telebot_token())

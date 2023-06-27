@@ -1,9 +1,11 @@
 from flask import Blueprint, request
 
-from services import ProblemServicesInterface, ProblemServicesV1
 from microservices import CodeAPIService
+from services import ProblemServicesInterface, ProblemServicesV1
 
 problems = Blueprint("problems", __name__)
+
+codeapi_service = CodeAPIService()
 
 
 @problems.route("/<problem_id>", methods=["GET"])
@@ -22,7 +24,7 @@ def problem_details(problem_id: int):
 @problems.route("/submit", methods=["POST"])
 def submit():
     request_data = request.json
-    response = CodeAPIService().run(**request_data)
+    response = codeapi_service.run(**request_data)
     if response:
         return response, 200
     return dict(response.__dict__)
