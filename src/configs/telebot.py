@@ -10,5 +10,5 @@ class TeleBotConfig:
         return TeleBotConfig.TOKEN
 
     @staticmethod
-    def get_chat_id() -> int:
+    def get_chat_id() -> str:
         return TeleBotConfig.CHAT_ID
